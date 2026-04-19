@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Data Scraper - Extract Data Instantly</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-robot"></i> AI Data Scraper</h1>
+            <p>Extract structured data from any website using AI-powered scraping</p>
+        </header>
+
+        <div class="scraper-card">
+            <div class="input-section">
+                <div class="url-input">
+                    <label for="url">Target URL</label>
+                    <div class="input-group">
+                        <i class="fas fa-globe"></i>
+                        <input type="url" id="url" placeholder="https://example.com" required>
+                    </div>
+                </div>
+
+                <div class="config-section">
+                    <label>Scraping Instructions</label>
+                    <textarea id="instructions" rows="4" placeholder="Extract all product names, prices, and descriptions. Return as JSON array.">Extract the following data as JSON:
+{
+  "products": [
+    {
+      "name": "",
+      "price": "",
+      "description": "",
+      "url": ""
+    }
+  ]
+}</textarea>
+                </div>
+
+                <button id="scrapeBtn" class="scrape-btn">
+                    <i class="fas fa-magic"></i>
+                    Start Scraping
+                </button>
+            </div>
+
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>AI is analyzing the page...</p>
+            </div>
+
+            <div class="results-section" id="results" style="display: none;">
+                <div class="results-header">
+                    <h3><i class="fas fa-table"></i> Extracted Data</h3>
+                    <div class="results-actions">
+                        <button id="copyBtn" class="copy-btn"><i class="fas fa-copy"></i> Copy JSON</button>
+                        <button id="downloadBtn" class="download-btn"><i class="fas fa-download"></i> Download</button>
+                        <button id="clearBtn" class="clear-btn"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+                <pre id="jsonOutput"><code>{}</code></pre>
+            </div>
+
+            <div class="error-section" id="error" style="display: none;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p id="errorMessage"></p>
+            </div>
+        </div>
+
+        <div class="features">
+            <h4>🚀 Features</h4>
+            <ul>
+                <li>AI-powered data extraction from any website</li>
+                <li>Custom scraping instructions</li>
+                <li>JSON output ready for APIs/databases</li>
+                <li>Copy/download results instantly</li>
+                <li>CORS proxy support for any domain</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="scraper.js"></script>
+</body>
+</html>
